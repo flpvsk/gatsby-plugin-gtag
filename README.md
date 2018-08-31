@@ -26,7 +26,6 @@ module.exports = {
         // your google analytics tracking id
         trackingId: `UA-XXXXXXXX-X`,
         // enable ip anonymization
-        // more info here: https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization
         anonymize: true,
       },
     },
@@ -34,6 +33,13 @@ module.exports = {
 }
 
 ```
+
+## Options
+
+#### anonymize
+
+Adds `anonymize_ip` flag when calling `gtag`. More info
+[here](https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization).
 
 ## License
 
