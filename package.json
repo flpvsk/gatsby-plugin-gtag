@@ -13,6 +13,10 @@
     "google-analytics",
     "gtag"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flpvsk/gatsby-plugin-gtag.git"
+  },
   "author": "Andrey Salomatin <andrey@flpvsk.com>",
   "license": "MIT",
   "peerDependencies": {
