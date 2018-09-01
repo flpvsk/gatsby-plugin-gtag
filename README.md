@@ -10,7 +10,7 @@ script, it uses
 ## Install
 
 ```bash
-npm install --save gatsby-plugin-gtag`
+npm install --save gatsby-plugin-gtag
 ```
 
 ## Use
