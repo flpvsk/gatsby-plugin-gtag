@@ -2,22 +2,22 @@ import React from 'react';
 
 const GTAG_SRC = `https://www.googletagmanager.com/gtag/js`;
 
-exports.onRenderBody = (
-  { setHeadComponents },
-  pluginOptions
-) => {
-
-  if (process.env.NODE_ENV !== 'production' || !pluginOptions.trackingId) {
+exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
+  if (
+    process.env.NODE_ENV !== 'production' ||
+    !pluginOptions.trackingId
+  ) {
     return null;
   }
 
   const anonymize = pluginOptions.anonymize || false;
 
   const gtagScript = (
-   <script
-     async
-     key='gatsby-plugin-gtag-gtag-js'
-     src={`${GTAG_SRC}?id=${pluginOptions.trackingId}`} />
+    <script
+      async
+      key="gatsby-plugin-gtag-gtag-js"
+      src={`${GTAG_SRC}?id=${pluginOptions.trackingId}`}
+    />
   );
 
   const scriptStr = `
@@ -41,12 +41,10 @@ exports.onRenderBody = (
   `;
   const trackScript = (
     <script
-      key='gatsby-plugin-gtag-inline-script'
-      dangerouslySetInnerHTML={{__html: scriptStr}} />
+      key="gatsby-plugin-gtag-inline-script"
+      dangerouslySetInnerHTML={{ __html: scriptStr }}
+    />
   );
 
-  return setHeadComponents([
-    gtagScript,
-    trackScript,
-  ]);
+  return setPostBodyComponents([gtagScript, trackScript]);
 };
