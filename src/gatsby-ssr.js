@@ -2,7 +2,7 @@ import React from 'react';
 
 const GTAG_SRC = `https://www.googletagmanager.com/gtag/js`;
 
-exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
+exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }, pluginOptions) => {
   if (
     process.env.NODE_ENV !== 'production' ||
     !pluginOptions.trackingId
@@ -46,5 +46,9 @@ exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
     />
   );
 
-  return setPostBodyComponents([gtagScript, trackScript]);
+  const setComponents = pluginOptions.head
+      ? setHeadComponents
+      : setPostBodyComponents
+
+  return setComponents([gtagScript, trackScript]);
 };
