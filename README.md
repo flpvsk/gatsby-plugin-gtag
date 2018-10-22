@@ -25,6 +25,8 @@ module.exports = {
       options: {
         // your google analytics tracking id
         trackingId: `UA-XXXXXXXX-X`,
+        // Puts tracking script in the head instead of the body
+        head: false,
         // enable ip anonymization
         anonymize: true,
       },
@@ -35,6 +37,10 @@ module.exports = {
 ```
 
 ## Options
+
+#### head
+
+Puts tracking script in the head instead of the body. Default is false (render in the body)
 
 #### anonymize
 
