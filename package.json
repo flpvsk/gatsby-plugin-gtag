@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir .",
     "precommit": "lint-staged",
-    "publish": "npm run build && npm publish"
+    "publish": "npm run build"
   },
   "keywords": [
     "gatsby",
