@@ -26,12 +26,11 @@ exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }, pluginOpti
     );
     window.GATSBY_GTAG_PLUGIN_ANONYMIZE = ${anonymize};
 
-    let options = undefined;
-
+    let options = {
+      send_page_view: false
+    };
     if (${anonymize}) {
-      options = {
-        anonymize_ip: true
-      };
+      options.anonymize_ip = true;
     }
 
     window.dataLayer = window.dataLayer || [];
