@@ -1,7 +1,7 @@
 {
   "name": "gatsby-plugin-gtag",
-  "version": "1.0.5",
-  "description": "Gatsby plugin to add Google Analytics gtag.js (replacement for analytics.js) to a site.",
+  "version": "1.0.6",
+  "description": "Gatsby plugin to add Google Analytics gtag.js (replacement for analytics.js) to a site. Includes Outbound Links.",
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir .",
@@ -12,7 +12,8 @@
     "gatsby",
     "gatsby-plugin",
     "google-analytics",
-    "gtag"
+    "gtag",
+    "outbound-link"
   ],
   "repository": {
     "type": "git",
