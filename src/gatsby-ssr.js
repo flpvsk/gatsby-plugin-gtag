@@ -2,7 +2,10 @@ import React from 'react';
 
 const GTAG_SRC = `https://www.googletagmanager.com/gtag/js`;
 
-exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }, pluginOptions) => {
+exports.onRenderBody = (
+  { setHeadComponents, setPostBodyComponents },
+  pluginOptions
+) => {
   if (
     process.env.NODE_ENV !== 'production' ||
     !pluginOptions.trackingId
@@ -37,6 +40,7 @@ exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }, pluginOpti
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', '${pluginOptions.trackingId}', options);
+    window.gtag = gtag;
   `;
   const trackScript = (
     <script
@@ -46,8 +50,8 @@ exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }, pluginOpti
   );
 
   const setComponents = pluginOptions.head
-      ? setHeadComponents
-      : setPostBodyComponents
+    ? setHeadComponents
+    : setPostBodyComponents;
 
   return setComponents([gtagScript, trackScript]);
 };
