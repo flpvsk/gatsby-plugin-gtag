@@ -1,5 +1,5 @@
 /**
- * Code from OutboundLink module in gatsby-plugin-google-anayltics
+ * Code from OutboundLink module in gatsby-plugin-google-analytics
  * modified for gtag
  */
 

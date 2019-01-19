@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-plugin-gtag-outbound",
-  "version": "1.0.0",
-  "description": "Custom gatsby plugin to add Google Analytics gtag.js to a site, including Outbound Links.",
+  "name": "gatsby-plugin-gtag",
+  "version": "1.0.6",
+  "description": "Gatsby plugin to add Google Analytics gtag.js (replacement for analytics.js) to a site. Includes Outbound Links.",
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir .",
@@ -12,23 +12,14 @@
     "gatsby",
     "gatsby-plugin",
     "google-analytics",
-    "gtag"
+    "gtag",
+    "outbound-link"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ascasson/gatsby-plugin-gtag-casson"
+    "url": "https://github.com/flpvsk/gatsby-plugin-gtag.git"
   },
   "author": "Andrey Salomatin <andrey@flpvsk.com>",
-  "contributors": [
-    {
-      "name": "Andrey Salomatin",
-      "email": "andrey@flpvsk.com"
-    },
-    {
-      "name": "Anthony Casson",
-      "email": "anthony.casson@gmail.com"
-    }
-  ],
   "license": "MIT",
   "peerDependencies": {
     "gatsby": ">2.0.0-alpha"

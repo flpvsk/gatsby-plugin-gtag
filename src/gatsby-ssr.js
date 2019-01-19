@@ -38,9 +38,9 @@ exports.onRenderBody = (
 
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', '${pluginOptions.trackingId}', options);
-    window.gtag = gtag;
   `;
   const trackScript = (
     <script

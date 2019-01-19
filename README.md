@@ -5,7 +5,7 @@ Does the same thing as
 [gatsby-plugin-google-analytics](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-google-analytics),
 but instead of adding [deprecated analytics.js](https://developers.google.com/analytics/devguides/collection/gtagjs/migration)
 script, it uses
-[gtag.js](https://developers.google.com/analytics/devguides/collection/gtagjs/).
+[gtag.js](https://developers.google.com/analytics/devguides/collection/gtagjs/). Includes Outbound Link module.
 
 ## Install
 
@@ -35,6 +35,11 @@ module.exports = {
 }
 
 ```
+## Outbound Links
+`import { OutboundLink } from 'gatsby-plugin-gtag'`
+
+Use like any other anchor tag in your component:
+`<OutboundLink href='yourwebsite.example'>Check out this site!</OutboundLink>`
 
 ## Options
 
