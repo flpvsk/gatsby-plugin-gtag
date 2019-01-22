@@ -13,9 +13,9 @@ exports.onRouteUpdate = ({ location }) => {
   let locationStr = '';
 
   if (location) {
-    locationStr = (
-      `${location.pathname}${location.search}${location.hash}`
-    );
+    locationStr = `${location.pathname}${location.search}${
+      location.hash
+    }`;
   }
 
   let anonymizeObj = {};
@@ -24,7 +24,7 @@ exports.onRouteUpdate = ({ location }) => {
   }
 
   gtag('config', trackingId, {
-    'page_path': locationStr,
+    page_path: locationStr,
     ...anonymizeObj,
   });
 };
