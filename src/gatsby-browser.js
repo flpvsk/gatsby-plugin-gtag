@@ -2,11 +2,7 @@ exports.onRouteUpdate = ({ location }) => {
   const trackingId = window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID;
   const anonymize = window.GATSBY_GTAG_PLUGIN_ANONYMIZE || false;
 
-  if (
-    !trackingId ||
-    process.env.NODE_ENV !== `production` ||
-    typeof gtag !== `function`
-  ) {
+  if (!trackingId || typeof gtag !== `function`) {
     return;
   }
 
