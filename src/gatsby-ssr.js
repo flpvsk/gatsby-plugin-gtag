@@ -29,7 +29,7 @@ exports.onRenderBody = (
     );
     window.GATSBY_GTAG_PLUGIN_ANONYMIZE = ${anonymize};
 
-    let options = {
+    var options = {
       send_page_view: false
     };
     if (${anonymize}) {
