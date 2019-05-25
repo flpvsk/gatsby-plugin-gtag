@@ -35,7 +35,9 @@ function OutboundLink(props) {
             event_label: props.href,
             transport_type: 'beacon',
             event_callback: function() {
-              document.location = props.href;
+              if (redirect) {
+                document.location = props.href;
+              }
             },
           });
         } else {
