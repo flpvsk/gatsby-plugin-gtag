@@ -7,8 +7,9 @@ exports.onRenderBody = (
   pluginOptions
 ) => {
   if (
-    process.env.NODE_ENV !== 'production' ||
-    !pluginOptions.trackingId
+    !pluginOptions.trackingId ||
+    (process.env.GATSBY_GTAG_DEBUG !== 'true' &&
+      process.env.NODE_ENV !== 'production')
   ) {
     return null;
   }

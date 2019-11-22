@@ -52,6 +52,11 @@ Puts tracking script in the head instead of the body. Default is false (render i
 Adds `anonymize_ip` flag when calling `gtag`. More info
 [here](https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization).
 
+## Testing in development mode
+
+By default `gatsby-plugin-gtag` will only load and run google analytics when `process.env.NODE_ENV === 'production'`.
+To enable gtag in development mode set the environment variable `GATSBY_GTAG_DEBUG=true gatsby develop`.
+
 ## License
 
 MIT
