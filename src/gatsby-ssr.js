@@ -6,11 +6,11 @@ exports.onRenderBody = (
   { setHeadComponents, setPostBodyComponents },
   pluginOptions
 ) => {
-  if (
-    !pluginOptions.trackingId ||
-    (process.env.GATSBY_GTAG_DEBUG !== 'true' &&
-      process.env.NODE_ENV !== 'production')
-  ) {
+  const isPluginEnabled =
+    stringToBool(process.env.GATSBY_GTAG_DEBUG) ||
+    process.env.NODE_ENV === 'production';
+
+  if (!pluginOptions.trackingId || !isPluginEnabled) {
     return null;
   }
 
@@ -56,3 +56,16 @@ exports.onRenderBody = (
 
   return setComponents([gtagScript, trackScript]);
 };
+
+function stringToBool(s) {
+  if (!s) {
+    return false;
+  }
+
+  const sNorm = s.trim().toLowerCase();
+  if (!sNorm.length) {
+    return false;
+  }
+
+  return sNorm === 'true' || sNorm === '1';
+}
