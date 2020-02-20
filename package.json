@@ -22,7 +22,7 @@
   "author": "Andrey Salomatin <andrey@flpvsk.com>",
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": ">2.0.0-alpha"
+    "gatsby": "^2.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.0.0",
