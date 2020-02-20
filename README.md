@@ -1,4 +1,5 @@
 # gatsby-plugin-gtag
+
 ### Add Google Analytics gtag.js to a site
 
 Does the same thing as
@@ -16,7 +17,6 @@ npm install --save gatsby-plugin-gtag
 ## Use
 
 ```js
-
 // In your gatsby-config.js
 module.exports = {
   plugins: [
@@ -32,14 +32,57 @@ module.exports = {
       },
     },
   ],
-}
-
+};
 ```
+
 ## Outbound Links
-`import { OutboundLink } from 'gatsby-plugin-gtag'`
 
 Use like any other anchor tag in your component:
-`<OutboundLink href='yourwebsite.example'>Check out this site!</OutboundLink>`
+
+```jsx
+import React from 'react';
+import { OutboundLink } from 'gatsby-plugin-gtag';
+
+export default () => (
+  <div>
+    <OutboundLink href="https://developers.google.com/gtagjs/reference/event">
+      Check out the gtag API docs!
+    </OutboundLink>
+  </div>
+);
+```
+
+## `trackCustomEvent`
+
+```jsx
+import React from 'react';
+import { trackCustomEvent } from 'gatsby-plugin-gtag';
+
+export default () => (
+  <div>
+    <button
+      onClick={e => {
+        // To stop the page reloading
+        e.preventDefault();
+        // Lets track that custom click
+        trackCustomEvent({
+          // string - required - The object that was interacted with (e.g.video)
+          category: 'Special Button',
+          // string - required - Type of interaction (e.g. 'play')
+          action: 'Click',
+          // string - optional - Useful for categorizing events (e.g. 'Spring Campaign')
+          label: 'Gatsby Plugin Example Campaign',
+          // number - optional - Numeric value associated with the event. (e.g. A product ID)
+          value: 43,
+        });
+        //... Other logic here
+      }}
+    >
+      Tap that!
+    </button>
+  </div>
+);
+```
 
 ## Options
 
