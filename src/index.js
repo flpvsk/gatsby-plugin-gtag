@@ -6,6 +6,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// @link https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-analytics/src/index.js#L4
+const createFunctionWithTimeout = (callback, opt_timeout = 1000) => {
+  let called = false;
+
+  const raceCallback = () => {
+    if (!called) {
+      called = true;
+      callback();
+    }
+  };
+
+  setTimeout(raceCallback, opt_timeout);
+
+  return raceCallback;
+};
+
 function OutboundLink(props) {
   return (
     <a
@@ -58,4 +74,38 @@ OutboundLink.propTypes = {
   onClick: PropTypes.func,
 };
 
-export { OutboundLink };
+/**
+ * This allows the user to create custom events within their Gatsby projects.
+ * @see https://developers.google.com/analytics/devguides/collection/gtagjs/events
+ */
+function trackCustomEvent({
+  category,
+  action,
+  label,
+  value,
+  nonInteraction = true,
+  transport,
+  eventCallback,
+  callbackTimeout = 1000,
+}) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    const trackingEventOptions = {
+      event_category: category,
+      event_label: label,
+      value,
+      non_interaction: nonInteraction,
+      transport_type: transport,
+    };
+
+    if (typeof eventCallback === 'function') {
+      trackingEventOptions.event_callback = createFunctionWithTimeout(
+        eventCallback,
+        callbackTimeout
+      );
+    }
+
+    window.gtag('event', action, trackingEventOptions);
+  }
+}
+
+export { OutboundLink, trackCustomEvent };
