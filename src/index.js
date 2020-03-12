@@ -92,14 +92,14 @@ function trackCustomEvent({
     const trackingEventOptions = {
       event_category: category,
       event_label: label,
-      event_value: value,
+      value,
       non_interaction: nonInteraction,
       transport_type: transport,
     };
 
     if (typeof eventCallback === 'function') {
-      trackingEventOptions.hitCallback = createFunctionWithTimeout(
-        hitCallback,
+      trackingEventOptions.event_callback = createFunctionWithTimeout(
+        eventCallback,
         callbackTimeout
       );
     }

@@ -73,7 +73,12 @@ export default () => (
           // string - optional - Useful for categorizing events (e.g. 'Spring Campaign')
           label: 'Gatsby Plugin Example Campaign',
           // number - optional - Numeric value associated with the event. (e.g. A product ID)
-          value: 43,
+          value: 43,  
+          // nonInteraction - optional - Boolean for setting the event as a non-interaction event. https://support.google.com/analytics/answer/1033068#NonInteractionEvents
+          nonInteraction:false,
+          // transport - optional - String for setting the transport type. "image","beacon" or "xhr". 
+          //https://developers.google.com/analytics/devguides/collection/gtagjs/sending-data#specify_different_transport_mechanisms
+          transport: "xhr",
         });
         //... Other logic here
       }}
