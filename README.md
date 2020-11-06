@@ -52,6 +52,14 @@ Puts tracking script in the head instead of the body. Default is false (render i
 Adds `anonymize_ip` flag when calling `gtag`. More info
 [here](https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization).
 
+#### optimizeId
+
+If provided, Includes Google Optimize script with given id in head.
+
+#### antiFlicker
+
+When antiFlicker = true and tracking script is put in document head (head option), includes antiflicker style and script in document head.
+
 ## Testing in development mode
 
 By default `gatsby-plugin-gtag` will only load and run google analytics when `process.env.NODE_ENV === 'production'`.

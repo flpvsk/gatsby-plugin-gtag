@@ -1,4 +1,5 @@
 /gatsby-ssr.js
 /gatsby-browser.js
+/antiflicker.js
 /index.js
 node_modules
