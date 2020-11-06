@@ -1,6 +1,7 @@
 import React from 'react';
-
+import { antiFlickerStyle, antiFlickerScript } from './antiflicker';
 const GTAG_SRC = `https://www.googletagmanager.com/gtag/js`;
+const OPTIMIZE_SRC = `https://www.googleoptimize.com/optimize.js`;
 
 exports.onRenderBody = (
   { setHeadComponents, setPostBodyComponents },
@@ -15,6 +16,13 @@ exports.onRenderBody = (
   }
 
   const anonymize = pluginOptions.anonymize || false;
+
+  const optimizeScript = (
+    <script
+      key="gatsby-plugin-gtag-optimize-js"
+      src={`${OPTIMIZE_SRC}?id=${pluginOptions.optimizeId}`}
+    />
+  );
 
   const gtagScript = (
     <script
@@ -54,7 +62,14 @@ exports.onRenderBody = (
     ? setHeadComponents
     : setPostBodyComponents;
 
-  return setComponents([gtagScript, trackScript]);
+  return setComponents([
+    ...(pluginOptions.head && pluginOptions.antiFlicker
+      ? [antiFlickerStyle, antiFlickerScript(pluginOptions.trackingId)]
+      : []),
+    ...(pluginOptions.optimizeId ? [optimizeScript] : []),
+    gtagScript,
+    trackScript,
+  ]);
 };
 
 function stringToBool(s) {
