@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-plugin-gtag",
-  "version": "1.0.13",
+  "name": "@reddyshop/gatsby-plugin-gtag",
+  "version": "1.0.15",
   "description": "Gatsby plugin to add Google Analytics gtag.js (replacement for analytics.js) to a site. Includes Outbound Links.",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/flpvsk/gatsby-plugin-gtag.git"
+    "url": "https://github.com/reddyshop/gatsby-plugin-gtag.git"
   },
   "author": "Andrey Salomatin <andrey@flpvsk.com>",
   "license": "MIT",
