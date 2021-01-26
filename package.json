@@ -1,6 +1,6 @@
 {
   "name": "@reddyshop/gatsby-plugin-gtag",
-  "version": "1.0.15",
+  "version": "1.10.1",
   "description": "Gatsby plugin to add Google Analytics gtag.js (replacement for analytics.js) to a site. Includes Outbound Links.",
   "main": "index.js",
   "scripts": {

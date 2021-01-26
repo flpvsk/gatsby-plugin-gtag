@@ -1,5 +1,6 @@
 import React from 'react';
 import { antiFlickerStyle, antiFlickerScript } from './antiflicker';
+import gtmScript from './gtm';
 const GTAG_SRC = `https://www.googletagmanager.com/gtag/js`;
 const OPTIMIZE_SRC = `https://www.googleoptimize.com/optimize.js`;
 
@@ -82,6 +83,7 @@ exports.onRenderBody = (
       : []),
     ...(pluginOptions.optimizeId ? [optimizeScript] : []),
     gtagScript,
+    gtmScript(pluginOptions.trackingId),
     trackScript,
   ];
 
